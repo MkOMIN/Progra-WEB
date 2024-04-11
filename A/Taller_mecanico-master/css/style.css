@@ -1,0 +1,30 @@
+.header-bg{
+    background: #4e8e9e;
+
+}
+.main-bg{
+    background:#C1E3EC;
+}
+
+.bg-footer{
+    background:#2D5E6B;
+}
+.mt-10{
+    margin-top: 11%;
+}
+.invalid-feedback{
+    color: red;
+}
+
+#carousel{
+    padding: 0;
+    margin: 0;
+    position: relative;
+    top: -40px;
+}
+
+#inputcontact{
+    width: 585px;
+    padding-bottom: 5px;
+}
+
