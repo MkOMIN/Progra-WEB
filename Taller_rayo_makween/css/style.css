@@ -12,9 +12,6 @@
 .mt-10{
     margin-top: 11%;
 }
-.invalid-feedback{
-    color: red;
-}
 
 #carousel{
     padding: 0;
@@ -26,6 +23,14 @@
 #inputcontact{
     width: 585px;
     padding-bottom: 5px;
+}
+#inputlogin{
+    width: 470px;
+    margin-bottom: 20px;
+}
+#inputregister{
+    width: 470px;
+    margin-bottom: 20px;
 }
 
 #menu{
@@ -51,4 +56,11 @@
     #textcaja{
         color: black;
     }
+}
+#text1{
+    margin: 5px;
+
+}
+#carrito{
+    padding-right: 10px;
 }

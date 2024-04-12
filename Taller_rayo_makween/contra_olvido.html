@@ -64,47 +64,66 @@
     </main>
 
 
-  <footer class="bg-footer text-white pt-4 pb-4 mt-10">
-    <div class="container text-center text-md-left">
-      <div class="row text-center text-md-left">
-          <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-3">
-              <h5 class="text-uppercase mb-4 font-weight-bold text-white">Rayo Makween</h5>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero aliquid unde ratione! Doloribus
-                  repellendus quo necessitatibus accusantium aliquid suscipit eum maxime repellat odio pariatur
-                  atque, nam enim quisquam quia exercitationem.</p>
-          </div>
-          <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-3">
-              <h5 class="text-uppercase mb-4 font-weight-bold text-white">Rayo Makween</h5>
-              <p>
-                  <a href="index.html" class="text-white" style="text-decoration: none;">Inicio</a>
-              </p>
-              <p>
-                  <a href="trabajos.html" class="text-white" style="text-decoration: none;">Trabajos</a>
-              </p>
-              <p>
-                  <a href="contacto.html" class="text-white" style="text-decoration: none;">Contacto</a>
-              </p>
-              <p>
-                  <a href="inicio_sesion.html" class="text-white" style="text-decoration: none;">Iniciar
-                      Sesion</a>
-              </p>
-              <p>
-                  <a href="index.html" class="text-white" style="text-decoration: none;">Registro</a>
-              </p>
-          </div>
-          <div class="col-md-4 col-lg-4 col-xl-4 mx-aito mt-3">
-              <h5 class="text-uppercase mb-4 font-weight-bold text-white">Contacto</h5>
-              <p>+569 99887766</p>
-              <p>Rayo.Makween@gmail.com</p>
-              <p>Avenida Siempre viva #44 Springfield.</p>
-              <p><a href="https://www.facebook.com"><img src="img/facebook.png" class="img-fluid"
-                          width="40px"></a>
-              </p>
-          </div>
-      </div>
+    <footer class="bg-footer text-white pt-4 pb-4 mt-10">
+      <div class="container text-center text-md-left">
+        <div class="row text-center text-md-left">
+            <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Rayo Makween</h5>
+                <br>
+                <p id="acerca">Somos un grupo de amigos que empezaron con un proyecto de taller mecánico, con el tiempo hemos ido creciendo y mejorando en nuestro trabajo, siempre buscando la satisfaccion de nuestros clientes.
+                </p> 
+                </div>
+            <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Rayo Makween</h5>
+                <p>
+                    <a href="index.html" class="text-white" style="text-decoration: none;">Inicio</a>
+                </p>
+                <p>
+                    <a href="trabajos.html" class="text-white" style="text-decoration: none;">Trabajos</a>
+                </p>
+                <p>
+                    <a href="contacto.html" class="text-white" style="text-decoration: none;">Contacto</a>
+                </p>
+                <p>
+                    <a href="inicio_sesion.html" class="text-white" style="text-decoration: none;">Iniciar
+                        Sesion</a>
+                </p>
+                <p>
+                    <a href="index.html" class="text-white" style="text-decoration: none;">Registro</a>
+                </p>
+            </div>
+            <div class="col-md-4 col-lg-4 col-xl-4 mx-aito mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Contacto</h5>
+                <p>+569 80906457</p>
+                <p>Rayo.Makween@gmail.com</p>
+                <p>A Nightmare on Elm Street #Lorca Prieto</p>
+                <p><a href="https://www.facebook.com"><img src="img/facebook.png" class="img-fluid"
+                            width="40px"></a>
+                </p>
+            </div>
+        </div>
 
-  </div>
-  </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-  <script src="js/index.js"></script>
+    </div>
+    </footer>
+    <script>// Example starter JavaScript for disabling form submissions if there are invalid fields
+      (() => {
+        'use strict'
+      
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+      
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+          form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+      
+            form.classList.add('was-validated')
+          }, false)
+        })
+      })()
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
   </body>
