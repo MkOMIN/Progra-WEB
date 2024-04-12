@@ -76,4 +76,34 @@ document.querySelector("#rayoregistro").addEventListener('submit', (e) => {
     console.log(rayoRegistro);
 });
 
+const rayoLogin = [];
+document.querySelector("#rayologin").addEventListener('submit', (e) => {
+    e.preventDefault();
+    let email = document.querySelector("#inputEmail").value;
+    let contrasena = document.querySelector("#inputPassword").value;
+    let siValido = true;
 
+    document.querySelector("#inputEmail").classList.remove("is-invalid");
+    document.querySelector("#inputPassword").classList.remove("is-invalid");
+
+    if (email.trim() == "") {
+        document.querySelector("#inputEmail").classList.add("is-invalid");
+        siValido = false;
+    }
+    if (contrasena.trim() == "") {
+        document.querySelector("#inputPassword").classList.add("is-invalid");
+        siValido = false;
+    }
+
+    if (siValido) {
+
+        let rayoM = {};
+        rayoM.email = email;
+        rayoM.contrasena = contrasena;
+        
+        rayoLogin.push(rayoM);
+        Swal.fire("Login Confirmado", "Usuario Registrado", "info");
+    }
+    document.querySelector("#inputEmail").value = "";
+    document.querySelector("#inputPassword").value = "";
+});
