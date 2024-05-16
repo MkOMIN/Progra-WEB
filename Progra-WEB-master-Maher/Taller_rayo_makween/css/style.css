@@ -1,5 +1,6 @@
 .header-bg{
     background: #4e8e9e;
+    
 
 }
 .main-bg{
@@ -20,18 +21,6 @@
     top: -40px;
 }
 
-#inputcontact{
-    width: 585px;
-    padding-bottom: 5px;
-}
-#inputlogin{
-    width: 470px;
-    margin-bottom: 20px;
-}
-#inputregister{
-    width: 470px;
-    margin-bottom: 20px;
-}
 
 #menu{
     padding: 20px;
@@ -61,6 +50,17 @@
     margin: 5px;
 
 }
-#map{
-    padding-top: 20px;
+
+#fotito{
+    width: 380px; /* Ancho*/
+    height: 500px;   
+}
+
+#content-box {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

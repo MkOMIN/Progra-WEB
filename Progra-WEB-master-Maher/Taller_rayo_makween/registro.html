@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/Fondo.css" >
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <title>Rayo Makween</title>
+</head>
+
+<body>
+
+  <div class="fondo">
+    <form action="#" class="needs-validation" novalidate> <!-- Agregado el atributo novalidate para desactivar la validación automática de HTML5 -->
+
+        <h1>Registro</h1>
+
+        <div class="contenedor">
+          <input type="email" id="email" placeholder="Email" required oninput="validarEmails()"> <!-- Añadido el identificador y el evento oninput -->
+          <div class="invalid-feedback">Por favor, ingresa un correo electrónico válido.</div> <!-- Mensaje de error para cuando el campo no es un email válido -->
+      </div>
+      
+      <div class="contenedor">
+          <input type="email" id="confirmar-email" placeholder="Confirme Email" required oninput="validarEmails()"> <!-- Añadido el identificador y el evento oninput -->
+          <div class="invalid-feedback">Por favor, confirma que sean iguales.</div> <!-- Mensaje de error para cuando los emails no coinciden -->
+      </div>
+      
+      <script>
+      // Función para validar que los campos de correo electrónico sean iguales
+      function validarEmails() {
+          var email = document.getElementById('email').value; // Obtener el valor del primer campo de correo electrónico
+          var confirmarEmail = document.getElementById('confirmar-email').value; // Obtener el valor del segundo campo de correo electrónico
+      
+          // Comparar los valores de los campos de correo electrónico
+          if (email !== confirmarEmail) {
+              // Si los valores son diferentes, mostrar un mensaje de error y detener el envío del formulario
+              document.getElementById('confirmar-email').setCustomValidity('Los correos electrónicos no coinciden.');
+          } else {
+              // Si los valores son iguales, limpiar cualquier mensaje de error existente
+              document.getElementById('confirmar-email').setCustomValidity('');
+          }
+      }
+      </script>
+      
+
+        <div class="contenedor">
+          <input type="text" placeholder="Nombre y Apellido" required>
+          <div class="invalid-feedback">Por favor, ingresa tu nombre y apellido.</div> <!-- Mensaje de error para cuando el campo está vacío -->
+        </div>
+
+        <div class="contenedor">
+          <input type="number" placeholder="Edad" required min="18"> <!-- Añadido el atributo min para especificar que la edad mínima es 18 -->
+          <div class="invalid-feedback">Debes tener al menos 18 años para registrarte.</div> <!-- Mensaje de error para cuando la edad es menor a 18 -->
+        </div>
+
+        <div class="contenedor">
+          <input type="text" placeholder="Direccion" required>
+          <div class="invalid-feedback">Por favor, ingresa tu dirección.</div> <!-- Mensaje de error para cuando el campo está vacío -->
+        </div>
+
+        <div class="contenedor">
+          <input type="password" id="password" placeholder="Contraseña" required oninput="validarContrasenas()"> <!-- Añadido el identificador y el evento oninput -->
+          <div class="invalid-feedback">Por favor, ingresa una contraseña.</div> <!-- Mensaje de error para cuando el campo está vacío -->
+      </div>
+      
+      <div class="contenedor">
+          <input type="password" id="confirmar-password" placeholder="Confirme Contraseña" required oninput="validarContrasenas()"> <!-- Añadido el identificador y el evento oninput -->
+          <div class="invalid-feedback">Por favor, confirma tu contraseña.</div> <!-- Mensaje de error para cuando las contraseñas no coinciden -->
+      </div>
+      
+      <script>
+      // Función para validar que las contraseñas sean iguales
+      function validarContrasenas() {
+          var password = document.getElementById('password').value; // Obtener el valor del primer campo de contraseña
+          var confirmarPassword = document.getElementById('confirmar-password').value; // Obtener el valor del segundo campo de contraseña
+      
+          // Comparar los valores de los campos de contraseña
+          if (password !== confirmarPassword) {
+              // Si los valores son diferentes, mostrar un mensaje de error y detener el envío del formulario
+              document.getElementById('confirmar-password').setCustomValidity('Las contraseñas no coinciden.');
+          } else {
+              // Si los valores son iguales, limpiar cualquier mensaje de error existente
+              document.getElementById('confirmar-password').setCustomValidity('');
+          }
+      }
+      </script>
+      
+
+        <div class="recordar">
+            <label for="#"><input type="checkbox">Recordar Contraseña</label>
+            <a href="#">Olvidaste tu contraseña?</a>
+        </div>
+
+        <button type="submit" class="btn1">Registrarse</button>
+
+        <div class="contenedor">
+            <center><a href="index.html"><button type="button" class="btn2"><i class="bi bi-arrow-left"></i></button></a></center>
+        </div>
+    </form>
+</div>
+
+      <script>// Example starter JavaScript for disabling form submissions if there are invalid fields
+        (() => {
+          'use strict'
+        
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          const forms = document.querySelectorAll('.needs-validation')
+        
+          // Loop over them and prevent submission
+          Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+              if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+              }
+        
+              form.classList.add('was-validated')
+            }, false)
+          })
+        })()</script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
