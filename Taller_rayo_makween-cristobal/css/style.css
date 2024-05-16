@@ -13,7 +13,6 @@
     margin-top: 11%;
 }
 
-
 .textrojo{
     margin-top: -280px;
     margin-left: 900px;
@@ -34,6 +33,7 @@
 
 .autorojo{
     margin-left: 200px;
+    margin-top: 20px;
     width: 550px;
     height: 450px;
 }
@@ -48,8 +48,7 @@
 .autoblanco{
     margin-left: 200px;
     margin-top: 220px;
-    width: 550px;
-    height: 450px;
+    margin-bottom: 20px;
     width: 550px;
     height: 450px;
 }
