@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="carrito.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .service {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .service:hover {
+            background-color: #e6e6e6;
+        }
+
+        .service label {
+            font-size: 18px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .pay-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            color: #fff;
+            background: #28a745;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .pay-button:hover {
+            background: #218838;
+        }
+
+        #cart {
+            list-style: none;
+            padding: 0;
+        }
+
+        #cart li {
+            background: #f9f9f9;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        #total {
+            font-size: 20px;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        #payment-form {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        #payment-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #payment-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #submit-payment {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            color: #fff;
+            background: #007bff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        #submit-payment:hover {
+            background: #0056b3;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Carrito de Compras</h1>
+        <div class="service">
+            <input type="radio" id="basic" name="service" value="10000" onclick="selectService('Servicio Básico', 10000)">
+            <label for="basic">Servicio Básico $10.000</label>
+        </div>
+        <div class="service">
+            <input type="radio" id="pro" name="service" value="20000" onclick="selectService('Servicio Pro', 20000)">
+            <label for="pro">Servicio Pro $20.000</label>
+        </div>
+        <button class="pay-button" onclick="pay()">Pagar</button>
+        <h2>Item Seleccionado</h2>
+        <ul id="cart">
+            <!-- Items del carrito aparecerán aquí -->
+        </ul>
+        <p id="total">Total: $0</p>
+        <div id="payment-form">
+            <h2>Detalles de Pago</h2>
+            <label for="card-number">Número de Tarjeta</label>
+            <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCardNumber(this)">
+            <p id="card-number-error" class="error-message">Número de tarjeta inválido.</p>
+            <label for="expiry-date">Fecha de Expiración</label>
+            <input type="text" id="expiry-date" placeholder="MM/AA" maxlength="5" oninput="formatExpiryDate(this)">
+            <p id="expiry-date-error" class="error-message">Fecha de expiración inválida.</p>
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" placeholder="123" maxlength="3">
+            <p id="cvv-error" class="error-message">CVV inválido.</p>
+            <button id="submit-payment" onclick="submitPayment()">Enviar Pago</button>
+        </div>
+    </div>
+
+    <script>
+        let total = 0;
+        let selectedService = '';
+
+        function selectService(service, price) {
+            selectedService = service;
+            total = price;
+            updateCart();
+        }
+
+        function updateCart() {
+            const cart = document.getElementById('cart');
+            cart.innerHTML = '';
+            if (selectedService) {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${selectedService} - $${total}`;
+                cart.appendChild(listItem);
+            }
+            document.getElementById('total').textContent = `Total: $${total}`;
+        }
+
+        function pay() {
+            if (selectedService) {
+                document.getElementById('payment-form').style.display = 'block';
+            } else {
+                alert('Por favor selecciona un servicio antes de pagar.');
+            }
+        }
+
+        function formatCardNumber(input) {
+            const value = input.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+            const matches = value.match(/\d{4,16}/g);
+            const match = matches && matches[0] || '';
+            const parts = [];
+            for (let i = 0, len = match.length; i < len; i += 4) {
+                parts.push(match.substring(i, i + 4));
+            }
+            if (parts.length) {
+                input.value = parts.join(' ');
+            } else {
+                input.value = value;
+            }
+        }
+
+        function formatExpiryDate(input) {
+            const value = input.value.replace(/[^0-9]/g, '').substring(0, 4);
+            if (value.length >= 2) {
+                input.value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            } else {
+                input.value = value;
+            }
+        }
+
+        function submitPayment() {
+            const cardNumber = document.getElementById('card-number').value.replace(/\s+/g, '');
+            const expiryDate = document.getElementById('expiry-date').value;
+            const cvv = document.getElementById('cvv').value;
+
+            let valid = true;
+
+            if (cardNumber.length !== 16) {
+                document.getElementById('card-number-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('card-number-error').style.display = 'none';
+            }
+
+            if (!expiryDate.match(/^(0[1-9]|1[0-2])\/\d{2}$/)) {
+                document.getElementById('expiry-date-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('expiry-date-error').style.display = 'none';
+            }
+
+            if (cvv.length !== 3) {
+                document.getElementById('cvv-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('cvv-error').style.display = 'none';
+            }
+
+            if (valid) {
+                alert('Pago enviado exitosamente.');
+                // Aquí puedes agregar el código para enviar los datos de pago al servidor
+            } else {
+                alert('Por favor corrige los errores en el formulario.');
+            }
+        }
+    </script>
+</body>
+</html>

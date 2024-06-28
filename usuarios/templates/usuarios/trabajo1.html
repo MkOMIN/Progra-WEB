@@ -53,21 +53,21 @@
       <h1 class="text-uppercase  text-center pt-4">Revisión de amortiguadores y frenos</h1>
         <div class="container-fluid">
             <div class="">
-                <img src="img/Trabajo 1.jpg" class="autorojo">
+                <img src="{% static 'img/Trabajo 1.jpg'%}" class="autorojo">
                 <p class="textrojo">La revisión regular de amortiguadores y frenos es crucial para garantizar la seguridad y el rendimiento óptimo de tu vehículo.Los amortiguadores desgastados pueden afectar la estabilidad y el manejo, 
                   lo que puede comprometer la capacidad de respuesta del vehículo en situaciones de emergencia. Por otro lado, los frenos en mal estado pueden aumentar la distancia de frenado y disminuir la capacidad de detención, lo que podría resultar en accidentes graves.
                 </p>
             </div>
             
             <div class="">
-                <img src="img/Alianza-Automotriz-Taller-Ford-Zapata-014-770x514.jpg" class="autoverde">
+                <img src="{% static 'img/Alianza-Automotriz-Taller-Ford-Zapata-014-770x514.jpg'%}" class="autoverde">
                 <p class="textverde">
                   Durante una revisión de amortiguadores, un mecánico experimentado inspeccionará 
                   los amortiguadores en busca de fugas, daños físicos y cualquier signo de desgaste. También verificarán la presión de los amortiguadores y realizarán pruebas de compresión para asegurarse de que estén funcionando correctamente. Si se detectan problemas, es importante reemplazar los amortiguadores de inmediato para mantener la estabilidad y la seguridad del vehículo.
                 </p>
             </div>
             <div class="">
-                <img src="img/taller-coches.jpg" class="autoblanco">
+                <img src="{% static 'img/taller-coches.jpg'%}" class="autoblanco">
                 <p class="textblanco"> 
                   En cuanto a la revisión de frenos, se examinarán los discos de freno, las pastillas de freno, los cilindros y el sistema hidráulico en busca de desgaste y deterioro. Se medirá el grosor de las pastillas de freno y se inspeccionará visualmente el estado de los discos de freno en busca de irregularidades. Además, se revisarán los niveles de líquido de frenos y se purgará 
                   el sistema si es necesario para garantizar un rendimiento óptimo de frenado.
@@ -85,42 +85,43 @@
     <footer class="bg-footer text-white pt-4 pb-4 mt-10">
       <div class="container text-center text-md-left">
         <div class="row text-center text-md-left">
-            <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Rayo Makween</h5>
-                <br>
-                <p id="acerca">Somos un grupo de amigos que empezaron con un proyecto de taller mecánico, con el tiempo hemos ido creciendo y mejorando en nuestro trabajo, siempre buscando la satisfaccion de nuestros clientes.
-                </p> 
-                </div>
-            <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Rayo Makween</h5>
-                <p>
-                    <a href="index" class="text-white" style="text-decoration: none;">Inicio</a>
-                </p>
-                <p>
-                    <a href="trabajos" class="text-white" style="text-decoration: none;">Trabajos</a>
-                </p>
-                <p>
-                    <a href="contacto" class="text-white" style="text-decoration: none;">Contacto</a>
-                </p>
-                <p>
-                    <a href="inicio_sesion" class="text-white" style="text-decoration: none;">Iniciar Sesion</a>
-                </p>
-                <p>
-                    <a href="registro" class="text-white" style="text-decoration: none;">Registro</a>
-                </p>
-            </div>
-            <div class="col-md-4 col-lg-4 col-xl-4 mx-aito mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Contacto</h5>
-                <p>+569 80906457</p>
-                <p>Rayo.Makween@gmail.com</p>
-                <p>A Nightmare on Elm Street #Lorca Prieto</p>
-                <p><a href="https://www.facebook.com"><img src="img/facebook.png" class="img-fluid"
-                            width="40px"></a>
-                </p>
-            </div>
+          <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 font-weight-bold text-white">Rayo Makween</h5>
+            <br>
+            <p id="acerca">Somos un grupo de amigos que empezaron con un proyecto de taller mecánico, con el tiempo hemos
+              ido creciendo y mejorando en nuestro trabajo, siempre buscando la satisfaccion de nuestros clientes.
+            </p>
+          </div>
+          <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 font-weight-bold text-white">Rayo Makween</h5>
+            <p>
+              <a href="{% url 'index'%}" class="text-white" style="text-decoration: none;">Inicio</a>
+            </p>
+            <p>
+              <a href="{% url 'trabajos'%}" class="text-white" style="text-decoration: none;">Trabajos</a>
+            </p>
+            <p>
+              <a href="{% url 'contacto'%}" class="text-white" style="text-decoration: none;">Contacto</a>
+            </p>
+            <p>
+              <a href="{% url 'inicio_sesion'%}" class="text-white" style="text-decoration: none;">Iniciar
+                Sesion</a>
+            </p>
+            <p>
+              <a href="{% url 'registro'%}" class="text-white" style="text-decoration: none;">Registro</a>
+            </p>
+          </div>
+          <div class="col-md-4 col-lg-4 col-xl-4 mx-aito mt-3">
+            <h5 class="text-uppercase mb-4 font-weight-bold text-white">Contacto</h5>
+            <p>+569 80906457</p>
+            <p>Rayo.Makween@gmail.com</p>
+            <p>A Nightmare on Elm Street #Lorca Prieto</p>
+            <p><a href="https://www.facebook.com"><img src="{% static 'img/facebook.png'%}" class="img-fluid" width="40px"></a>
+            </p>
+          </div>
         </div>
-
-    </div>
+  
+      </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <script src="js/index.js"></script>

@@ -129,20 +129,20 @@
               <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-3">
                   <h5 class="text-uppercase mb-4 font-weight-bold text-white">Rayo Makween</h5>
                   <p>
-                      <a href="index" class="text-white" style="text-decoration: none;">Inicio</a>
+                      <a href="{% url 'index'%}" class="text-white" style="text-decoration: none;">Inicio</a>
                   </p>
                   <p>
-                      <a href="trabajos" class="text-white" style="text-decoration: none;">Trabajos</a>
+                      <a href="{% url 'trabajos'%}" class="text-white" style="text-decoration: none;">Trabajos</a>
                   </p>
                   <p>
-                      <a href="contacto" class="text-white" style="text-decoration: none;">Contacto</a>
+                      <a href="{% url 'contacto'%}" class="text-white" style="text-decoration: none;">Contacto</a>
                   </p>
                   <p>
-                      <a href="inicio_sesion" class="text-white" style="text-decoration: none;">Iniciar
+                      <a href="{% url 'inicio_sesion'%}" class="text-white" style="text-decoration: none;">Iniciar
                           Sesion</a>
                   </p>
                   <p>
-                      <a href="registro" class="text-white" style="text-decoration: none;">Registro</a>
+                      <a href="{% url 'registro'%}" class="text-white" style="text-decoration: none;">Registro</a>
                   </p>
               </div>
               <div class="col-md-4 col-lg-4 col-xl-4 mx-aito mt-3">
@@ -150,7 +150,7 @@
                   <p>+569 80906457</p>
                   <p>Rayo.Makween@gmail.com</p>
                   <p>A Nightmare on Elm Street #Lorca Prieto</p>
-                  <p><a href="https://www.facebook.com"><img src="img/facebook.png" class="img-fluid"
+                  <p><a href="https://www.facebook.com"><img src="{% static 'img/facebook.png'%}" class="img-fluid"
                               width="40px"></a>
                   </p>
               </div>

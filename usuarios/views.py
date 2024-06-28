@@ -37,3 +37,7 @@ def trabajo3(request):
 def trabajos(request):
     context={}
     return render(request, 'usuarios/trabajos.html', context)
+
+def carrito(request):
+    context={}
+    return render(request, 'usuarios/carrito.html', context)

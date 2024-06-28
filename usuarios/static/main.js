@@ -5,7 +5,6 @@ const api = {
 }
 
 const card = document.getElementById('card');
-
 const city = document.getElementById('city');
 const date = document.getElementById('date');
 const tempImg = document.getElementById('temp-img');
@@ -15,9 +14,9 @@ const range = document.getElementById('range');
 
 function updateImages(data){
     const temp = toCelsius(data.main.temp);
-    let src = '{% static "img/temp-mid.png"';
+    let src = 'img/temp-mid.png';
     if(temp > 26){
-        src = 'usuarios/static/img/temp-high.png';
+        url = "{% static 'img/temp-high.png'%}";
     } else if(temp < 20){
         src = 'img/temp-low.png';
     }

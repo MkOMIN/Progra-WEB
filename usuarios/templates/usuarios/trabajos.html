@@ -37,6 +37,8 @@
               aria-disabled="true">Iniciar Sesion</a>
             <a class="nav-link text-uppercase btn-large" href="{% url 'registro'%}" tabindex="-1"
               aria-disabled="true">Registro</a>
+            <a class="nav-link text-uppercase btn-large" href="{% url 'carrito'%}" tabindex="-1"
+              aria-disabled="true">Carrito</a>
           </div>
         </div>
         <div class="md-4">
@@ -52,7 +54,7 @@
       <div class="row pt-5">
         <div class="col-lg-4 col-md-6 col-12 pb-3 pt-3">
           <div class="card border-success">
-            <img src="img/amortiguadores.png" class="card-img-top" alt="Amortiguadores Y Frenos">
+            <img src="{% static 'img/amortiguadores.png'%}" class="card-img-top" alt="Amortiguadores Y Frenos">
             <div class="card-body">
               <p class="card-text text-center">Amortiguadores Y Frenos</p>
               <a href="{% url 'trabajo1'%}" class="btn btn-outline-success d-block mx-auto">Ver trabajo</a>
@@ -61,7 +63,7 @@
         </div>
         <div class="col-lg-4 col-md-6 col-12 pb-3 pt-3">
           <div class="card border-success">
-            <img src="img/computadora_automotriz.jpg" class="card-img-top" alt="Testeo De La Computadora Del Automóvil">
+            <img src="{% static 'img/computadora_automotriz.jpg'%}" class="card-img-top" alt="Testeo De La Computadora Del Automóvil">
             <div class="card-body">
               <p class="card-text text-center">Testeo De La Computadora Del Automóvil</p>
               <a href="{% url 'trabajo2'%}" class="btn btn-outline-success d-block mx-auto">Ver trabajo</a>
@@ -70,7 +72,7 @@
         </div>
         <div class="col-lg-4 col-md-6 col-12 pb-3 pt-3">
           <div class="card border-success">
-            <img src="img/dll15.jpg" class="card-img-top" alt="Revisión Motor y Sistema de Combustible">
+            <img src="{% static 'img/dll15.jpg'%}" class="card-img-top" alt="Revisión Motor y Sistema de Combustible">
             <div class="card-body">
               <p class="card-text text-center">Revisión Motor y Sistema de Combustible</p>
               <a href="{% url 'trabajo3'%}" class="btn btn-outline-success d-block mx-auto">Ver trabajo</a>
@@ -113,7 +115,7 @@
             <p>+569 80906457</p>
             <p>Rayo.Makween@gmail.com</p>
             <p>A Nightmare on Elm Street #Lorca Prieto</p>
-            <p><a href="https://www.facebook.com"><img src="img/facebook.png" class="img-fluid" width="40px"></a>
+            <p><a href="https://www.facebook.com"><img src="{% static 'img/facebook.png'%}" class="img-fluid" width="40px"></a>
             </p>
           </div>
         </div>
