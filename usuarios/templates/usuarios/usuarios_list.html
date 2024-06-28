@@ -1,0 +1,54 @@
+{% extends 'myApp/base.html' %}
+
+{% block title %}Editar alumnos{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="mb-4">Editar datos de alumnos</h1>
+                <a href="{% url 'alumnosAdd' %}" class="btn btn-primary mb-3">Agregar Alumno</a>
+
+                <div id="idMensajes">
+                    {% if mensajes %}
+                        {{ mensaje }}
+                    {% endif %}
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Rut</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido P.</th>
+                            <th scope="col">Apellido M.</th>
+                            <th scope="col">Eliminar</th>
+                            <th scope="col">Modificar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for x in alumnos %}
+                            <tr>
+                                <td>{{ x.rut }}</td>
+                                <td>{{ x.nombre }}</td>
+                                <td>{{ x.apellido_paterno }}</td>
+                                <td>{{ x.apellido_materno }}</td>
+                                <td>
+                                    <!-- Agrega aquí el enlace o botón para eliminar -->
+                                    <a href="{% url 'alumnos_del' pk=x.rut %}">Eliminar</a>
+                                </td>
+                                <td>
+                                    <!-- Agrega aquí el enlace o botón para modificar -->
+                                    <a href="{% url 'alumnos_findEdit' pk=x.rut %}">Modificar</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+{% endblock %}

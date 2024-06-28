@@ -1,3 +1,4 @@
+console.log('Hola desde main.js');
 const api = {
     key:'ad2fb0a5ace91827b61fb6446bdeea43',
     url:'https://api.openweathermap.org/data/2.5/weather'
@@ -14,11 +15,11 @@ const range = document.getElementById('range');
 
 function updateImages(data){
     const temp = toCelsius(data.main.temp);
-    let src = 'img/temp-mid.png';
+    let src = '{% static "img/temp-mid.png"';
     if(temp > 26){
-        src = 'img/temp-high.png';
+        src = '{% static "img/temp-high.png"%}';
     } else if(temp < 20){
-        src = 'img/temp-low.png';
+        src = '{% static "img/temp-low.png"%}';
     }
     tempImg.src = src;
 

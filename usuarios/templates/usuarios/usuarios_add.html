@@ -1,0 +1,67 @@
+{% extends 'myApp/base.html' %}
+
+{% block title %}Contáctanos{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2 class="text-center mb-4">Formulario CRUD de Alumnos</h2>
+                <form action="alumnosAdd" method="POST">
+                    {% csrf_token %}
+
+                    <!-- Campos para ingresar -->
+                    <div class="mb-3">
+                        <label class="form-label">Rut:</label>
+                        <input type="text" name="rut" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Nombre:</label>
+                        <input type="text" name="nombre" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Apellido Paterno:</label>
+                        <input type="text" name="paterno" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Apellido Materno:</label>
+                        <input type="text" name="materno" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Fecha Nacimiento:</label>
+                        <input type="date" name="fechaNac" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Género:</label>
+                        <select name="genero" class="form-select">
+                            {% for genero in generos %}
+                                <option value="{{ genero.id_genero }}">{{ genero.genero }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Celular:</label>
+                        <input type="text" name="telefono" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email:</label>
+                        <input type="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Dirección:</label>
+                        <input type="text" name="direccion" class="form-control" required>
+                    </div>
+
+                    <!-- Botón de envío -->
+                    <input type="submit" name="opcion" value="Agregar" class="btn btn-primary">
+                    <a href="{% url 'crud' %}" class="btn btn-secondary">Volver</a>
+                </form>
+                <br>
+                
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+{% endblock %}

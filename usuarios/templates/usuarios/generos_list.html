@@ -1,0 +1,56 @@
+{% extends 'usuarios/index.html' %}
+
+{% block title %}Editar usuarios{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="mb-4">Editar Género</h1>
+                <a href="{% url 'generosAdd' %}" class="btn btn-primary mb-3">Agregar género</a>
+
+                <div id="idMensajes">
+                    {% if mensajes %}
+                        {{ mensaje }}
+                    {% endif %}
+                </div>
+
+                <table class="table">
+                    {% if generos %}
+                        <thead>
+                            <tr>
+                                <th scope="col">Género</th>
+                                <th scope="col">Eliminar</th>
+                                <th scope="col">Modificar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for x in generos %}
+                                <tr>
+                                    <td>{{ x.genero }}</td>
+                                    <td>
+                                        <!-- Agrega aquí el enlace o botón para eliminar -->
+                                        <a href="{% url 'generos_del' pk=x.id_genero %}">Eliminar</a>
+                                    </td>
+                                    <td>
+                                        <!-- Agrega aquí el enlace o botón para modificar -->
+                                        <a href="{% url 'generos_edit' pk=x.id_genero %}">Modificar</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    {% endif %}
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#idMensajes").delay(2000).fadeOut("slow");
+        });
+    </script>
+{% endblock %}
