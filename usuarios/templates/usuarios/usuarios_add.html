@@ -1,67 +1,43 @@
-{% extends 'myApp/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style=" text-align: center;">
+        
+            <h2>Formulario CRUD para Alumnos</h2>
+            <form action="usuariosAdd" method="POST">
+                {% csrf_token %}
 
-{% block title %}Contáctanos{% endblock %}
+                <pre>Rut:           <input type="text" name="rut"></pre>
+                <pre>Nombre:        <input type="text" name="nombre"></pre>
+                <pre>Apellido P.    <input type="text" name="paterno"></pre>
+                <pre>Apellido M.    <input type="text" name="materno"></pre>
+                <pre>Fecha Nac.:    <input type="date" name="fechaNac"></pre>
+                <pre>Género         <select name="genero" id="">
+                    {% for genero in generos %}
+                        <option value="{{genero.id_genero}}">{{genero.genero}}</option>
+                    {% endfor %}
+                </select></pre>
+                <pre>Celular:       <input type="text" name="telefono"></pre>
+                <pre>Email:         <input type="mail" name="email"></pre>
+                <pre>Dirección:     <input type="text" name="direccion"></pre>
 
-{% block content %}
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <h2 class="text-center mb-4">Formulario CRUD de Alumnos</h2>
-                <form action="alumnosAdd" method="POST">
-                    {% csrf_token %}
-
-                    <!-- Campos para ingresar -->
-                    <div class="mb-3">
-                        <label class="form-label">Rut:</label>
-                        <input type="text" name="rut" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Nombre:</label>
-                        <input type="text" name="nombre" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Apellido Paterno:</label>
-                        <input type="text" name="paterno" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Apellido Materno:</label>
-                        <input type="text" name="materno" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Fecha Nacimiento:</label>
-                        <input type="date" name="fechaNac" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Género:</label>
-                        <select name="genero" class="form-select">
-                            {% for genero in generos %}
-                                <option value="{{ genero.id_genero }}">{{ genero.genero }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Celular:</label>
-                        <input type="text" name="telefono" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Email:</label>
-                        <input type="email" name="email" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Dirección:</label>
-                        <input type="text" name="direccion" class="form-control" required>
-                    </div>
-
-                    <!-- Botón de envío -->
-                    <input type="submit" name="opcion" value="Agregar" class="btn btn-primary">
-                    <a href="{% url 'crud' %}" class="btn btn-secondary">Volver</a>
-                </form>
-                <br>
-                
+                <input type="submit" name="opcion" value="Agregar">
+            </form><br><br>
+            <a href="{% url 'crud' %}">Volver</a>
+            <br>
+            <div id="idMensajes">
+                {% if mensaje %}
+                {{mensaje}}
+                {% endif %}
             </div>
         </div>
-    </div>
-    <br>
-    <br>
-    <br>
-{% endblock %}
+
+
+
+</body>
+</html>

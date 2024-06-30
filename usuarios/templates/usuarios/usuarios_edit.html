@@ -1,81 +1,48 @@
-{% extends 'usuarios/index.html' %}
-
-{% block title %}Editar usuarios{% endblock %}
-
-{% block content %}
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-
-            {% if usuarios %}
-
-            <h2 class="text-center mb-4">Formulario CRUD de Usuarios</h2>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style=" text-align: center;">
+        
+        {% if usuarios %}
+            <h2>Formulario CRUD para Alumnos</h2>
             <form action="{% url 'usuariosUpdate' %}" method="POST">
                 {% csrf_token %}
 
-                <!-- Campos para ingresar -->
-                <div class="mb-3">
-                    <label class="form-label">Rut:</label>
-                    <input type="text" name="rut" value="{{usuarios.rut}}" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Nombre:</label>
-                    <input type="text" name="nombre" value="{{usuarios.nombre}}" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Apellido Paterno:</label>
-                    <input type="text" name="paterno" value="{{usuarios.apellido_paterno}}" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Apellido Materno:</label>
-                    <input type="text" name="materno" value="{{usuarios.apellido_materno}}" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Fecha Nacimiento:</label>
-                    <input type="date" name="fechaNac" value="{{usuarios.fecha_nacimiento}}" class="form-control"
-                        required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Género:</label>
-                    <select name="genero" class="form-select">
-                        {% for genero in generos %}
+                <pre>Rut:           <input type="text" name="rut"></pre>
+                <pre>Nombre:        <input type="text" name="nombre"></pre>
+                <pre>Apellido P.    <input type="text" name="paterno"></pre>
+                <pre>Apellido M.    <input type="text" name="materno"></pre>
+                <pre>Fecha Nac.:    <input type="date" name="fechaNac"></pre>
+                <pre>Género         <select name="genero" id="">
+                    {% for genero in generos %}
                         {% if genero.genero == usuarios.id_genero.genero %}
-                        <option value="{{ genero.id_genero }}" selected>{{ genero.genero }}</option>
+                        <option value="{{genero.id_genero}}" selected>{{genero.genero}}</option>
                         {% else %}
-                        <option value="{{ genero.id_genero }}">{{ genero.genero }}</option>
+                        <option value="{{genero.id_genero}}">{{genero.genero}}</option>
                         {% endif %}
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Celular:</label>
-                    <input type="text" name="telefono" value="{{usuarios.telefono}}" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Email:</label>
-                    <input type="email" name="email" value="{{usuarios.email}}" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Dirección:</label>
-                    <input type="text" name="direccion" value="{{usuarios.direccion}}" class="form-control" required>
-                </div>
+                    {% endfor %}
+                </select></pre>
+                <pre>Celular:       <input type="text" name="telefono" value="{{usuarios.telefono}}"></pre>
+                <pre>Email:         <input type="mail" name="email"  value="{{usuarios.email}}"></pre>
+                <pre>Dirección:     <input type="text" name="direccion"  value="{{usuarios.direccion}}"></pre>
+                <input type="submit" name="opcion" value="Actualizar">
 
-                <!-- Botón de envío -->
-                <input type="submit" name="opcion" value="Actualizar" class="btn btn-primary">
-                <a href="{% url 'crud' %}" class="btn btn-secondary">Volver</a>
-            </form>
-            <br>
-            {% endif %}
+            </form><br><br>
+        {% endif %}    
             <div id="idMensajes">
                 {% if mensaje %}
                 {{mensaje}}
                 {% endif %}
             </div>
         </div>
-    </div>
-</div>
-<br>
-<br>
-<br>
-{% endblock %}
+        <br><br>
+        <a href="{% url 'base' %}"> Volver </a>
+
+
+</body>
+</html>
