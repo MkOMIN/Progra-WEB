@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario CRUD para Usuarios</title>
+    <link rel="stylesheet" href="{% static 'css/crudadd.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Formulario CRUD para Usuarios</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ usuariosForm.as_p }}
+            <input type="submit" name="opcion" value="{{ boton }}" class="submit-button">
+        </form>
+        <br><br>
+        <a href="{% url 'crud' %}" class="back-link">Volver</a>
+        <br>
+        <div id="idMensajes">
+            {% if mensaje %}
+                <div class="mensaje">{{ mensaje }}</div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
