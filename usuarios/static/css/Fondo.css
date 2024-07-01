@@ -104,7 +104,7 @@
 }
 
 body{
-  background-image: url(../img/registro.avif);
+  background-image: url(static/img/registro.avif);
   background-size: cover;
   display: flex; 
   justify-content: center;

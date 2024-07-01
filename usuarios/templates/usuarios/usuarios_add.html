@@ -1,43 +1,28 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Formulario CRUD para Usuarios</title>
+    <link rel="stylesheet" href="{% static 'css/crudadd.css' %}">
 </head>
 <body>
-    <div style=" text-align: center;">
-        
-            <h2>Formulario CRUD para Alumnos</h2>
-            <form action="usuariosAdd" method="POST">
-                {% csrf_token %}
-
-                <pre>Rut:           <input type="text" name="rut"></pre>
-                <pre>Nombre:        <input type="text" name="nombre"></pre>
-                <pre>Apellido P.    <input type="text" name="paterno"></pre>
-                <pre>Apellido M.    <input type="text" name="materno"></pre>
-                <pre>Fecha Nac.:    <input type="date" name="fechaNac"></pre>
-                <pre>Género         <select name="genero" id="">
-                    {% for genero in generos %}
-                        <option value="{{genero.id_genero}}">{{genero.genero}}</option>
-                    {% endfor %}
-                </select></pre>
-                <pre>Celular:       <input type="text" name="telefono"></pre>
-                <pre>Email:         <input type="mail" name="email"></pre>
-                <pre>Dirección:     <input type="text" name="direccion"></pre>
-
-                <input type="submit" name="opcion" value="Agregar">
-            </form><br><br>
-            <a href="{% url 'crud' %}">Volver</a>
-            <br>
-            <div id="idMensajes">
-                {% if mensaje %}
-                {{mensaje}}
-                {% endif %}
-            </div>
+    <div class="form-container">
+        <h2>Formulario CRUD para Usuarios</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ usuariosForm.as_p }}
+            <input type="submit" name="opcion" value="{{ boton }}" class="submit-button">
+        </form>
+        <br><br>
+        <a href="{% url 'crud' %}" class="back-link">Volver</a>
+        <br>
+        <div id="idMensajes">
+            {% if mensaje %}
+                <div class="mensaje">{{ mensaje }}</div>
+            {% endif %}
         </div>
-
-
-
+    </div>
 </body>
 </html>
