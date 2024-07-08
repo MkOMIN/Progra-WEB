@@ -2,7 +2,15 @@ from django.shortcuts import render, redirect
 from . models import Usuarios,Genero
 from django.http import HttpResponseRedirect
 from . forms import GeneroForm, UsuariosForm
-from django.contrib.auth.decorators import login_required
+from . decorators import login_request, solo_jefe
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+
+
+def index(request):
+    request.session["usuario"]="mecanico"
+    usuario=request.session["usuario"]
+    context={"usuario":usuario}
+    return render(request, 'usuarios/index.html', context)
 
 # Create your views here.
 
@@ -23,9 +31,25 @@ def contra_olvido(request):
     context={}
     return render(request, 'usuarios/contra_olvido.html', context)
 
-def inicio_sesion(request):
+@login_request
+def login(request):
     context={}
-    return render(request, 'usuarios/inicio_sesion.html', context)
+    if request.method == "POST":
+        email=request.POST['email']
+        contrasena=request.POST['contrasena']
+
+        user = authenticate(request, username=email, password=contrasena)
+        if user is not None:
+            auth_login(request, user)
+            print("Usuario autenticado")
+            return redirect('index')
+        else:
+            print("Usuario no encontrado")
+    return render(request, 'usuarios/login.html', context)
+
+def logout(request):
+    auth_logout(request)
+    return redirect('/')
 
 def registro(request):
     context={}
@@ -57,11 +81,17 @@ def listadoSQL(request):
     context={"usuarios":usuarios}
     return render(request, 'usuarios/listadoSQL.html', context)
 
+@solo_jefe
 def crud(request):
     usuarios=Usuarios.objects.all()
     context={'usuarios':usuarios}
     return render(request, 'usuarios/usuarios_list.html',context)
 
+def error(request):
+    context={}
+    return render(request, 'usuarios/error.html', context)
+
+@solo_jefe
 def usuariosAdd(request):
 
     print("Estoy en controlador usuariosAdd...")
@@ -82,6 +112,7 @@ def usuariosAdd(request):
 
     return render(request, 'usuarios/usuarios_add.html', context)
 
+@solo_jefe
 def usuarios_del(request,pk):
     context=()
     try:
@@ -97,7 +128,8 @@ def usuarios_del(request,pk):
         usuarios=Usuarios.objects.all()
         context={'usuarios':usuarios, 'mensaje':mensaje}
         return render(request, 'usuarios/usuarios_list.html')
-    
+
+@solo_jefe
 def usuarios_findEdit(request,pk):
     if pk !="":
         usuarios=Usuarios.objects.get(rut=pk)
@@ -121,6 +153,7 @@ def usuarios_findEdit(request,pk):
 
     return render(request, 'usuarios/usuarios_add.html',context)
 
+@solo_jefe
 def usuariosUpdate(request):
     if request.method == "POST":
         rut=request.POST["rut"]

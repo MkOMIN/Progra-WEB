@@ -57,7 +57,7 @@ ROOT_URLCONF = 'taller.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,6 +69,9 @@ TEMPLATES = [
         },
     },
 ]
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'index'
+
 
 WSGI_APPLICATION = 'taller.wsgi.application'
 

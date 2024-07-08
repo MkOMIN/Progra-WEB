@@ -34,10 +34,19 @@
               aria-disabled="true">Trabajos</a>
             <a class="nav-link text-uppercase btn-large" href="{% url 'contacto'%}" tabindex="-1"
               aria-disabled="true">Contacto</a>
-            <a class="nav-link text-uppercase btn-large" href="{% url 'inicio_sesion'%}" tabindex="-1"
-              aria-disabled="true">Iniciar Sesion</a>
             <a class="nav-link text-uppercase btn-large" href="{% url 'crud'%}" tabindex="-1"
               aria-disabled="true">Registro</a>
+            
+            <div class="nav-link text-uppercase btn-large" tabindex="-1">  
+            {% if user.is_authenticated %} 
+              {{ request.user }}
+            {% else %}
+              <a href="{%url 'inicio_sesion' %}">login</a>
+            {% endif %}
+            </div>
+            <div class="nav-link text-uppercase btn-large" tabindex="-1">  
+            <a href="{% url 'logout'%}">Cerrar Sesion</a>
+            </div>
           </div>
         </div>
         <div class="md-4">
