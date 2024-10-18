@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style=" text-align: center;">
+        
+        {% if usuarios %}
+            <h2>Formulario CRUD para Alumnos</h2>
+            <form action="{% url 'usuariosUpdate' %}" method="POST">
+                {% csrf_token %}
+
+                <pre>Rut:           <input type="text" name="rut"></pre>
+                <pre>Nombre:        <input type="text" name="nombre"></pre>
+                <pre>Apellido P.    <input type="text" name="paterno"></pre>
+                <pre>Apellido M.    <input type="text" name="materno"></pre>
+                <pre>Fecha Nac.:    <input type="date" name="fechaNac"></pre>
+                <pre>Género         <select name="genero" id="">
+                    {% for genero in generos %}
+                        {% if genero.genero == usuarios.id_genero.genero %}
+                        <option value="{{genero.id_genero}}" selected>{{genero.genero}}</option>
+                        {% else %}
+                        <option value="{{genero.id_genero}}">{{genero.genero}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select></pre>
+                <pre>Celular:       <input type="text" name="telefono" value="{{usuarios.telefono}}"></pre>
+                <pre>Email:         <input type="mail" name="email"  value="{{usuarios.email}}"></pre>
+                <pre>Dirección:     <input type="text" name="direccion"  value="{{usuarios.direccion}}"></pre>
+                <input type="submit" name="opcion" value="Actualizar">
+
+            </form><br><br>
+        {% endif %}    
+            <div id="idMensajes">
+                {% if mensaje %}
+                {{mensaje}}
+                {% endif %}
+            </div>
+        </div>
+        <br><br>
+        <a href="{% url 'base' %}"> Volver </a>
+
+
+</body>
+</html>

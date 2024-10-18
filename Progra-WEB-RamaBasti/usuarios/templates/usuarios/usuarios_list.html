@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Datos de Alumnos</title>
+    <link rel="stylesheet" href="{% static 'css/crud.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Editar Datos de Alumnos</h1>
+    </header>
+
+    <main>
+        <div class="button-container">
+            <button type="button">
+                <a href="{% url 'usuariosAdd' %}">Agregar</a>
+            </button>
+        </div>
+
+        <div id="idMensajes">
+            {% if mensaje %}
+                <div class="mensaje">{{ mensaje }}</div>
+            {% endif %}
+        </div>
+
+        <table class="styled-table">
+            {% if usuarios %}
+                <thead>
+                    <tr>
+                        <th>Rut</th>
+                        <th>Nombre</th>
+                        <th>Apellido P.</th>
+                        <th>Apellido M.</th>
+                        <th>Eliminar</th>
+                        <th>Modificar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in usuarios %}
+                        <tr>
+                            <td>{{ x.rut }}</td>
+                            <td>{{ x.nombre }}</td>
+                            <td>{{ x.apellido_paterno }}</td>
+                            <td>{{ x.apellido_materno }}</td>
+                            <td><a href="{% url 'usuarios_del' pk=x.rut %}">Eliminar</a></td>
+                            <td><a href="{% url 'usuarios_findEdit' pk=x.rut %}">Modificar</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            {% endif %}
+        </table>
+        <center>
+        <a href="{% url 'index' %}" class="back-link">Volver</a>
+        </center>
+    </main>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#idMensajes").delay(2000).fadeOut("slow");
+        });
+    </script>
+</body>
+</html>

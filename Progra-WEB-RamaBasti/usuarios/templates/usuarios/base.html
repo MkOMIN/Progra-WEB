@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hola Usuarios</h1>
+    <br>
+    {% for usuarios in usuarios %}
+        {{usuarios.rut}},  {{usuarios.nombre}},  {{usuarios.apellido_paterno}},
+        {{usuarios.apellido_materno}},  {{usuarios.id_genero.genero}}, <br>
+    {% endfor %}
+
+</body>
+</html>
